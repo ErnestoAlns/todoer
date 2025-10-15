@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block titile %}
+    signup
+{% endblock %}
+
+{% block htitle %}
+    <header class="header">
+        Sign up
+    </header>
+{% endblock %}
+
+{% block content %}
+
+<p>Entery you data to have acces to the app.</p>
+
+<form method="POST">
+    <label>Name</label>
+    <input placeholder="Username" required/>
+    <label>Password</label>
+    <input placeholder="Password" required/>
+    <input value="Submit" type="submit"/>
+</form>
+
+
+
+{% endblock %}
+

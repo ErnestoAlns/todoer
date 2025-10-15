@@ -1,0 +1,15 @@
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE task (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    created_by INT NOT NULL,
+    daydate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    titile VARCHAR(70) NOT NULL,
+    descTask TEXT NOT NULL,
+    state BOOLEAN NOT NULL,
+    FOREIGN KEY (created_by) REFERENCES users (id)
+);

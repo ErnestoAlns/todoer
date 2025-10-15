@@ -1,0 +1,6 @@
+src/routes/user_routes.py	Maneja /register y /login.	Sesiones/JWT para mantener al usuario logueado.
+src/routes/task_routes.py	Maneja /tasks (CRUD de tareas).	Restricción de Acceso: Solo el dueño de la tarea puede editarla.
+src/models/user_models.py	Modelo Pydantic para User (con password hash).	Validación de Correo y longitud de contraseña.
+src/models/task_models.py	Modelo Pydantic para Task (con la clave foránea user_id).	Tipado de Fechas (datetime.date o str).
+src/services/auth_service.py	NUEVO: Lógica para bcrypt.checkpw() y gestión de usuarios.	Capa de Servicio para reglas de negocio.
+src/database/setup.py	NUEVO: Script para crear las tablas si no existen.	DDL (Data Definition Language) de SQL.
