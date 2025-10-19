@@ -1,12 +1,14 @@
 from ..models.user import UserRegister, UserModel
 
-class UserCrud:
+class UserRepo:
 
-    def InsertUser(self,connection, user_data: UserRegister):
+    def InsertUser(self,connection, passw_hash:str,  username:str):
             cursor = connection.cursor(dictiorary=True)
-            sql = 'INSERT INTO users (username, password) values ( %(username)s, %(password)s )'
+#            sql = 'INSERT INTO users (username, password) values ( %(username)s, %(password)s )'
+            sql = 'INSERT INTO users (username, password) values ( %s, %s )'
+            values = [username, passw_hash]
             try:
-                cursor.execute(sql, user_data.model_dump())
+                cursor.execute(sql, values)
 
             finally:
                 cursor.close()
