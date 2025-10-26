@@ -6,15 +6,12 @@ def hash_passw(password):
 
     return hashed.decode('utf-8')
 
-def passw_auth(password, passw_hash):
+def passw_auth(password: str, passw_hash: str) -> bool:
     try:
         passw_encode = password.encode('utf-8')
         hashp_encode = passw_hash.encode('utf-8')
-
+        
         return bcrypt.checkpw(passw_encode, hashp_encode)
     except ValueError:
         return False
-
-
-
 

@@ -8,7 +8,7 @@ class UserRegister(BaseModel):
 
 class UserModel(BaseModel):
     id: int
-    name: str
+    username: str
     password: str
 
     model_config = ConfigDict(from_attributes=True)

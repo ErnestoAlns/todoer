@@ -1,72 +1,246 @@
-:root {
-    --bg-main: #282828; 
-    --bg-card: #3c3836; 
-    --text-light: #ebdbb2; 
-    --text-secondary: #a89984; 
-    --color-orange: #fe8019; 
-    --color-yellow: #fabd2f; 
-    --color-red: #fb4934; 
-}
+/*
+ * PALETA GRUVBOX LIGHT (Warm)
+ * Fondo Principal: #fbf1c7
+ * Texto Principal: #3c3836
+ * Tarjeta Base: #ffffff (Blanco puro para contraste)
+ * Yellow (Acción): #d79921
+ * Green (Éxito/Status): #98971a
+ * Blue (Edición): #458588
+ * Red (Eliminar): #fb4934
+ * Sombra/Borde: #504945
+ */
+
+/* ------------------------------------------- */
+/* 1. Estilos Globales y Base */
+/* ------------------------------------------- */
 
 body {
-    font-family: 'Inter', 'Roboto', sans-serif; 
-    background-color: var(--bg-main);
-    color: var(--text-light);
+    background-color: #fbf1c7; /* Fondo Principal */
+    color: #3c3836; /* Texto Principal */
+    font-family: 'Roboto', 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.6; /* Mejorar legibilidad */
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+a {
+    text-decoration: None;
 }
 
-ul li {
-  float: left;
+/* Contenedor principal para centrar el contenido */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-ul li a {
-  display: block;
-  color: #ebdbb2;
-  text-align: center;
-  padding: 14px 50px;
-  text-decoration: none;
-  font-size: 2.5rem;
-  font-weight: 700;
+/* ------------------------------------------- */
+/* 2. Navegación (Header) */
+/* ------------------------------------------- */
+
+.navbar {
+    background-color: #fbf1c7; /* Mismo fondo, pero con sombra */
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(80, 73, 69, 0.1); /* Sombra sutil de Dark 1 */
+    display: flex;
+    justify-content: center; /* Centrar la nav bar en la vista */
 }
 
-main {
-    margin-top: 80px;
-}
-
-ul {
+.nav-links {
     list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px; /* Espacio entre links */
 }
 
-a:hover{
-    color: var(--color-orange);
+.nav-links a {
+    text-decoration: none;
+    color: #3c3836;
+    font-weight: 500;
+    padding-bottom: 5px; /* Para el borde inferior al hover */
+    transition: color 0.3s, border-bottom 0.3s;
 }
 
-.content{
-    margin-top: 50px;
+.nav-links a:hover,
+.nav-links a.active { /* Para el link activo */
+    color: #d79921; /* Yellow */
+    border-bottom: 2px solid #d79921;
 }
 
-.header {
+/* ------------------------------------------- */
+/* 3. Estilos de Tarjeta Base */
+/* ------------------------------------------- */
+
+.card {
+    background-color: #ffffff; /* Blanco puro para contraste */
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(80, 73, 69, 0.15); /* Sombra suave y prominente */
+    transition: transform 0.2s;
+}
+
+/* ------------------------------------------- */
+/* 4. Formulario de Nueva Tarea */
+/* ------------------------------------------- */
+
+.new-task-form h2 {
+    margin-top: 0;
+    color: #3c3836;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #504945; /* Dark 1 (Sombra) */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #3c3836;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+
+.form-group input[type="text"]:focus {
+    border-color: #98971a; /* Green al enfocar */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(152, 151, 26, 0.2); /* Sombra suave del green */
+}
+
+.form-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0;
-    margin-bottom: 20px;
-    color: var(--color-orange);
-    font-size: 2.5rem;
-    font-weight: 700;
+    margin-top: 20px;
 }
 
-.header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+.btn-primary {
+    background-color: #d79921; /* Yellow */
+    color: #fbf1c7; /* Fondo Principal (texto claro) */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b9831c; /* Yellow ligeramente más oscuro */
+}
+
+/* Estilo para la casilla de status en el formulario */
+.form-actions label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form-actions input[type="checkbox"] {
+    margin-right: 8px;
+    /* Estilos minimalistas para checkbox */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #504945;
+    border-radius: 3px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-actions input[type="checkbox"]:checked {
+    background-color: #98971a; /* Green */
+    border-color: #98971a;
+}
+
+/* ------------------------------------------- */
+/* 5. Lista de Tareas (Task Cards) */
+/* ------------------------------------------- */
+
+.task-card {
+    /* Herencia del .card */
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid transparent; /* Para indicar estado */
+}
+
+.task-info {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.task-info h3 {
     margin: 0;
-    color: var(--color-orange);
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.task-info p {
+    margin: 5px 0 0;
+    color: #504945; /* Dark 1 para la descripción (más sutil) */
+    font-size: 0.9em;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo base para los botones de ícono (Editar/Eliminar) */
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: opacity 0.3s;
+    padding: 5px;
+}
+
+.icon-btn:hover {
+    opacity: 0.7;
+}
+
+.icon-edit {
+    color: #458588; /* Blue */
+}
+
+.icon-delete {
+    color: #fb4934; /* Red */
+}
+
+/* ------------------------------------------- */
+/* 6. Estados de la Tarea */
+/* ------------------------------------------- */
+
+/* Tarea Completada */
+.task-card.completed {
+    border-left-color: #98971a; /* Borde verde para indicar completado */
+    background-color: #f7f3e8; /* Un tono muy ligero y sutilmente diferente al blanco puro */
+}
+
+.task-card.completed .task-info h3,
+.task-card.completed .task-info p {
+    text-decoration: line-through;
+    color: #a89984; /* Color más apagado (Grey) */
+}
+
+.task-card.completed .status-indicator {
+    color: #98971a; /* Green */
+}
+
+/* El indicador de status visible (ej. un ícono de check) */
+.status-indicator {
+    font-size: 1.5em;
+    color: transparent; /* Por defecto invisible */
+    margin-left: 10px;
 }

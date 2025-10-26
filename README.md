@@ -16,7 +16,7 @@ CREATE TABLE task (
     id INT PRIMARY KEY AUTO_INCREMENT,
     created_by INT NOT NULL,
     daydate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    titile VARCHAR(70) NOT NULL,
+    title VARCHAR(70) NOT NULL,
     descTask TEXT NOT NULL,
     state BOOLEAN NOT NULL,
     FOREIGN KEY (created_by) REFERENCES users (id)
@@ -25,3 +25,6 @@ CREATE TABLE task (
 
 ---
 
+## How it Looks
+![home page](assets/img/01-homepage.png)
+![task page](assets/img/01-taskpage.png)

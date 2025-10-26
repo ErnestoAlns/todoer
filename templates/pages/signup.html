@@ -4,23 +4,29 @@
     signup
 {% endblock %}
 
-{% block htitle %}
-    <header class="header">
-        Sign up
-    </header>
-{% endblock %}
-
 {% block content %}
 
-<p>Entery you data to have acces to the app.</p>
+<div class="container">
+    <div class="card new-task-form">
+        <h2>Sign Up</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="taskTitle" class="sr-only">Username</label>
+                    <input name="username" type="text" id="taskTitle" placeholder="Username" required>
+                </div>
 
-<form method="POST">
-    <label>Name</label>
-    <input name="username" placeholder="Username" required/>
-    <label>Password</label>
-    <input name="password" placeholder="Password" required/>
-    <input value="Submit" type="submit"/>
-</form>
+                <div class="form-group">
+                    <label for="taskDescription" class="sr-only">Password</label>
+                    <input name="password" type="text" id="taskDescription" placeholder="Password" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">SUBMIT</button>
+                </div>
+            </form>
+    </div>
+</div>
+
 
 
 

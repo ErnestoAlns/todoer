@@ -1,17 +1,22 @@
+from mysql.connector import Timestamp
 from pydantic import BaseModel, Field, ConfigDict
 from datetime import date 
 
 class TaskRegister(BaseModel):
-    title: str = Field(min_length=8, max_length=70)
-    desc: str = Field(min_length=10)
+    created_by: int
+    titile: str = Field(min_length=4, max_length=70)
+    descTask: str = Field(min_length=10)
+    state: bool
 
     model_config = ConfigDict(from_attributes=True)
 
 class TaskModel(BaseModel):
-    create_by: int
-    daydate: date
+    id: int
+    created_by: int
+    daydate: Timestamp
     titile: str
-    desc: str
+    descTask: str
+    state: bool
 
     model_config = ConfigDict(from_attributes=True)
     
