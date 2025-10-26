@@ -27,4 +27,4 @@ CREATE TABLE task (
 
 ## How it Looks
 ![home page](assets/img/01-homepage.png)
-![task page](assets/img/01-taskpage.png)
+![task page](assets/img/02-taskpage.png)
